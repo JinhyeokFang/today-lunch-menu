@@ -15,11 +15,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-
+  let d = new Date();
   const form = {
-    year: 2018,
-    month: 3,
-    day: 16,
+    year: d.getFullYear(),
+    month: d.getMonth(),
+    day: d.getDate(),
     time: 2,
     name: '선린인터넷고등학교',
     phase: 4
@@ -31,8 +31,8 @@ app.get('/api', (req, res) => {
   }
   
   klunch.getLunch(form, (err, output) => {
-    if(err) throw err
-    res.send(output)
+    if(err) res.send(null)
+    else res.send(output)
   }, options)
 })
 
