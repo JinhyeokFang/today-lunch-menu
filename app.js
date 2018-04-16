@@ -18,7 +18,7 @@ app.get('/api', (req, res) => {
   let d = new Date();
   const form = {
     year: d.getFullYear(),
-    month: d.getMonth(),
+    month: d.getMonth()+1,
     day: d.getDate(),
     time: 2,
     name: '선린인터넷고등학교',
