@@ -4,7 +4,6 @@ const klunch = require('k-lunch')
 
 const app = express()
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
@@ -14,12 +13,12 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
-app.get('/api/:time', (req, res) => {
+app.get('/api/:time/:month/:date', (req, res) => {
   let d = new Date()
   const form = {
     year: d.getFullYear(),
-    month: d.getMonth()+1,
-    day: d.getDate(),
+    month: d.getMonth() + 1,
+    day: req.params.date,
     time: req.params.time,
     name: '선린인터넷고등학교',
     phase: 4
